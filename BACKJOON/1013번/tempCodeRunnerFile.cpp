@@ -1,23 +1,25 @@
 #include <iostream>
-#include <cstring>
+#include <string>
 
 using namespace std;
 
 int main() {
     int num;
-    int back = 0;
-    long unsigned int idx = 0;
 
     cin >> num;
 
     string s[num];
     bool anw[num];
 
-    for(int j = 0; j < num; j++) {
-        cin >> s[j];
+    for(int i = 0; i < num; i++) {
+        cin >> s[i];
+    }
 
-        back = 0;
-        idx = 0;
+    for(int j = 0; j < num; j++) {
+        long unsigned int idx = 0;
+        int back = 0;
+
+        // (100+1+ | 01)+
         while(s[j].length() > idx) {
             if(s[j].length() >= idx + 1) {
                 if(s[j][idx] == '0' && s[j][idx + 1] == '1') {
@@ -63,7 +65,10 @@ int main() {
                 break;
             }
         }
-        if(anw[j] == true) {
+    }
+    
+    for(int k = 0; k < num; k++) {
+        if(anw[k] == true) { 
             cout << "YES" << endl;
         }
         else {
